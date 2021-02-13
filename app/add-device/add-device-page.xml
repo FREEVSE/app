@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+
+<Page.actionBar>
+	<ActionBar title="Add a Device" icon="" class="action-bar">
+		</ActionBar>
+	</Page.actionBar>
+	<GridLayout>
+	<ActivityIndicator busy="{{ Searching }}" color="red" width="50" 
+   height="50"></ActivityIndicator>
+   <Label text="Searching for devices..." class="text-center" visiblity="{{ Searching ? 'visible' : 'collapsed' }}"/>
+    <StackLayout id="stackLayout">
+		<Label text="hello"/>
+   	</StackLayout>
+   </GridLayout>
+
+</Page> 
