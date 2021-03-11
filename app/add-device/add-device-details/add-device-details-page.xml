@@ -1,0 +1,57 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+<Page.actionBar>
+	<ActionBar title="{{ Name }}" icon="" class="action-bar">
+		</ActionBar>
+	</Page.actionBar>
+	<StackLayout>
+		<GridLayout columns="auto,*" rows="auto, auto, auto, auto">
+			<Label col="0" row="0" text="Address: "/>
+			<Label col="1" row="0" text="{{ Address }}"/>
+
+			<Label col="0" row="1" text="Hardware Version: "/>
+			<Label col="1" row="1" text="{{ HwVersion }}"/>
+			
+			<Label col="0" row="2" text="Firmware Version: "/>
+			<Label col="1" row="2" text="{{ FwVersion }}"/>
+
+			<Label col="0" row="3" text="Current state: "/>
+			<Label col="1" row="3" text="{{ State }}"/>
+		</GridLayout>
+		<Label text="Controls" class="h1"/>
+		<GridLayout columns="auto,*" rows="auto, auto, auto, auto">
+			<Label col="0" row="0" text="Max Output: " class="h2"/>
+			<TextField 
+				col="1"
+				row="0"
+				text="{{ MaxOutput }}"
+				keyboardType="number"
+				returnKeyType="done" 
+				style="border-color: orangered; border-bottom-width:1px">
+			</TextField>
+
+			<Label row="1" colSpan="2" text="WiFi" class="h1"/>
+
+			<Label col="0" row="2" text="SSID: " class="h2"/>
+			<TextField 
+				col="1"
+				row="2"
+				text='name' 
+				keyboardType="number"
+				returnKeyType="done" 
+				style="border-color: orangered; border-bottom-width:1px">
+			</TextField>
+			<Label col="0" row="3" text="PASS: " class="h2"/>
+			<TextField 
+				col="1"
+				row="3"
+				text='name' 
+				keyboardType="number"
+				returnKeyType="done" 
+				style="border-color: orangered; border-bottom-width:1px">
+			</TextField>
+		</GridLayout>
+		<Button text="Save to device" style="background-color: green;"></Button>
+		<Button text="Restart Device" style="background-color: orangered;"></Button>
+	</StackLayout>
+	
+</Page>

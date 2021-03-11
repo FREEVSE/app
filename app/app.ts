@@ -5,6 +5,25 @@ purpose of the file is to pass control to the app’s first module.
 */
 
 import { Application } from '@nativescript/core';
+import { firebase, messaging } from '@nativescript/firebase';
+
+firebase.init({
+    onMessageReceivedCallback: (message: firebase.Message) => {
+        console.log(`Title: ${message.title}`);
+        console.log(`Body: ${message.body}`);
+      },
+      onPushTokenReceivedCallback: function(token) {
+        console.log("Firebase push token: " + token);
+      }
+
+}).then(
+  () => {
+    console.log("firebase.init done");
+  },
+  error => {
+    console.log(`firebase.init error: ${error}`);
+  }
+);
 
 Application.run({ moduleName: 'app-root' });
 

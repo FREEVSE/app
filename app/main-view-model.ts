@@ -1,43 +1,50 @@
-import { Observable, Frame } from '@nativescript/core';
+import { Observable, ObservableArray, Frame } from '@nativescript/core';
+import { ZeroconfBrowser, ZeroconfService } from "./net/zeroconf/zeroconf.android"
+import { firebase } from "@nativescript/firebase"
+import { messaging } from "@nativescript/firebase/messaging"
 
 export class HelloWorldModel extends Observable {
-    private _counter: number;
-    private _message: string;
+    private _searching: boolean = true;
+	private _zcServices: ObservableArray<ZeroconfService>;
 
     constructor() {
         super();
-
-        // Initialize default values.
-        this._counter = 42;
-        this.updateMessage();
+        
+        this._zcServices = new ObservableArray<ZeroconfService>();
     }
 
-    get message(): string {
-        return this._message;
-    }
+    get Searching(): boolean{
+		return this._searching;
+	}
 
-    set message(value: string) {
-        if (this._message !== value) {
-            this._message = value;
-            this.notifyPropertyChange('message', value);
-        }
-    }
+	set Searching(val: boolean) {
+		if(this._searching != val){
+			this._searching = val;
+			this.notifyPropertyChange("Searching", val);
+		}
+	}
 
-    onTap() {
-        this._counter--;
-        this.updateMessage();
-    }
+	get ZeroconfDevices(): ObservableArray<ZeroconfService>{
+		return this._zcServices;
+	}
 
-    onAddDeviceTap() {
-        Frame.topmost().navigate("add-device/add-device-page");
-    }
+	private ListZeroConfDevices(){
+		this.Searching = true;
 
-    private updateMessage() {
-        if (this._counter <= 0) {
-            this.message =
-                'Hoorraaay! You unlocked the NativeScript clicker achievement!';
-        } else {
-            this.message = `${this._counter} taps left`;
-        }
-    }
+		const browser = new ZeroconfBrowser("_freevserpc._tcp");
+		browser.DiscoverAndResolve().subscribe(
+			zeroConf => {
+				console.info(`Name ${zeroConf.Name} - Type: ${zeroConf.Type}`);
+				this._zcServices.push(zeroConf);
+			},
+			error => console.error(error),
+			() => {
+				this.Searching = false;
+			}
+		)
+	}
+
+	onListViewLoaded(){
+		this.ListZeroConfDevices();
+	}
 }

@@ -2,17 +2,16 @@
   "name": "@nativescript/template-hello-world-ts",
   "main": "app.js",
   "version": "7.0.6",
-  "author": "NativeScript Team <oss@nativescript.org>",
-  "description": "NativeScript Application",
+  "author": "Matthew Goulart",
+  "description": "Companion app for the FREEVSE",
   "license": "SEE LICENSE IN <your-license-filename>",
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
-    "nativescript",
-    "mobile",
-    "{N}",
-    "template"
+    "freevse",
+    "evse",
+    "charger"
   ],
   "repository": "<fill-your-repository-here>",
   "bugs": {
@@ -21,6 +20,7 @@
   "homepage": "https://github.com/NativeScript/nativescript-app-templates",
   "dependencies": {
     "@nativescript/core": "~7.1.0",
+    "@nativescript/firebase": "^11.1.3",
     "@nativescript/theme": "~2.3.0",
     "@nstudio/nativescript-floatingactionbutton": "^3.0.4",
     "nativescript-dna-netservices": "^1.1.0",

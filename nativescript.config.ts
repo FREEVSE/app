@@ -1,7 +1,7 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'org.nativescript.FREEVSEApp',
+  id: 'org.freevse.app',
   appPath: 'app',
   appResourcesPath: 'App_Resources',
   android: {
