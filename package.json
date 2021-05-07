@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/NativeScript/nativescript-app-templates",
   "dependencies": {
+    "@freevse/nativescript-blufi": "file:../nativescript-plugin-seed/dist/packages/nativescript-blufi",
+    "@nativescript-community/ble": "3.0.18",
     "@nativescript/core": "~7.1.0",
     "@nativescript/firebase": "^11.1.3",
     "@nativescript/theme": "~2.3.0",

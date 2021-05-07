@@ -1,0 +1,20 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+<Page.actionBar>
+	<ActionBar title="AddDevice Page" icon="" class="action-bar">
+		</ActionBar>
+	</Page.actionBar>
+	<GridLayout>
+	<ListView items="{{ BleDevices }}"
+			itemTap="onDeviceTap"
+			loaded="{{ onListViewLoaded }}" 
+			separatorColor="orangered" rowHeight="50"
+			class="list-group" id="listView" row="2">
+		<ListView.itemTemplate>
+			<!-- The item template can only have a single root view container (e.g. GriLayout, StackLayout, etc.) -->
+			<StackLayout>
+				<Label text="{{ name }}" textWrap="true" class="title" />
+			</StackLayout>
+		</ListView.itemTemplate>
+	</ListView>
+    </GridLayout>
+</Page>

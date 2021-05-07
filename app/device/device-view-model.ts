@@ -1,7 +1,7 @@
 import {Observable} from '@nativescript/core';
-import { ZeroconfService } from '../../net/zeroconf/zeroconf.android'
+import { ZeroconfService } from '../net/zeroconf/zeroconf.android'
 
-export class AddDeviceDetailsViewModel extends Observable {
+export class DeviceViewModel extends Observable {
 
 	private _svc: ZeroconfService;
 	private _hwv: string;

@@ -6,6 +6,7 @@ purpose of the file is to pass control to the app’s first module.
 
 import { Application } from '@nativescript/core';
 import { firebase, messaging } from '@nativescript/firebase';
+import { ApplicationSettings } from '@nativescript/core';
 
 firebase.init({
     onMessageReceivedCallback: (message: firebase.Message) => {
@@ -13,6 +14,7 @@ firebase.init({
         console.log(`Body: ${message.body}`);
       },
       onPushTokenReceivedCallback: function(token) {
+        if(!ApplicationSettings.getBoolean('isRegisteredForPush', false))
         console.log("Firebase push token: " + token);
       }
 

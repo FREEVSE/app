@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" navigatingFrom="navigatingFrom" class="page">
+<Page.actionBar>
+	<ActionBar title="ConfigureDevice Page" icon="" class="action-bar">
+		</ActionBar>
+	</Page.actionBar>
+	<Label class="configure-device-page" text="ConfigureDevice Page!"/>
+</Page>

@@ -1,6 +1,6 @@
 import { EventData, Label, Page, StackLayout } from '@nativescript/core';
 import { ZeroconfService } from '~/net/zeroconf/zeroconf.android';
-import { AddDeviceDetailsViewModel } from './add-device-details-view-model';
+import { DeviceViewModel } from './device-view-model';
 import { request, getJSON } from '@nativescript/core/http';
 
 let page: Page;
@@ -8,7 +8,7 @@ let page: Page;
 export async function navigatingTo(args: EventData) {
 	page = <Page>args.object;
 	let svc = page.navigationContext['svc'] as ZeroconfService;
-	page.bindingContext = new AddDeviceDetailsViewModel(svc);
+	page.bindingContext = new DeviceViewModel(svc);
 
 	await GetDeviceInfo(svc);
 }
@@ -20,7 +20,7 @@ async function GetDeviceInfo(svc: ZeroconfService){
 
 	let req = getJSON(url)
 
-	let vm = page.bindingContext as AddDeviceDetailsViewModel;
+	let vm = page.bindingContext as DeviceViewModel;
 
 	let res = await req;
 
